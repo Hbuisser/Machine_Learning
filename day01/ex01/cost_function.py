@@ -11,7 +11,6 @@ def cost_elem_(theta, X, Y):
     solution = np.array(solution)
     return (0.5 / len(Y) * solution)
 
-
 def cost_(theta, X, Y):
     solution = 0
     l = len(X)
