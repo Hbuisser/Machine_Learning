@@ -60,9 +60,21 @@ print(data)
 Xpill = np.array(data['Micrograms']).reshape(-1,1)
 Yscore = np.array(data['Score']).reshape(-1,1)
 
-linear_model1 = MyLR(np.array([[89.0], [-8.7]])) 
-linear_model2 = MyLR(np.array([[89.0], [-6]]))
+# linear_model1 = MyLR(np.array([[89.0], [-8.7]])) 
+# linear_model2 = MyLR(np.array([[89.0], [-6]]))
+# Y_model1 = linear_model1.predict_(Xpill)
+# Y_model2 = linear_model2.predict_(Xpill)
+
+#model 1
+
+linear_model1 = MyLR(np.array([[2.0], [2.0]]))
+linear_model1.fit_(Xpill, Yscore, 0.01, 200000)
+print(linear_model1.theta)
 Y_model1 = linear_model1.predict_(Xpill)
+
+#model 2
+
+linear_model2 = MyLR(np.array([[89.0], [-6]]))
 Y_model2 = linear_model2.predict_(Xpill)
 
 print(linear_model1.mse_(Xpill, Yscore))
